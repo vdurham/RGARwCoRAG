@@ -6,6 +6,7 @@ import torch
 # from MIRAGE.src.utils import QADataset
 # from src.medrag import MedRAG
 from src.RGAR import RGAR
+
 class QADataset:
 
     def __init__(self, data, dir="."):
@@ -26,6 +27,7 @@ class QADataset:
             return [self.__getitem__(i) for i in range(self.__len__())[key]]
         else:
             raise KeyError("Key type not supported.")
+
 def extract_answer(content):
     
     match = re.findall(r'(?:answer|Answer).*?([A-Z])', content)
